@@ -63,6 +63,27 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
     .nav-links a:hover,
     .nav-links a.active { color: var(--text); text-decoration: none; }
 
+    /* Specialty dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      min-width: 180px;
+      z-index: 200;
+      overflow: hidden;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block; padding: 0.6rem 1rem;
+      font-size: 0.85rem; color: var(--text-dim);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: var(--bg); color: var(--text); text-decoration: none; }
+
     /* Main content */
     main { flex: 1; max-width: 860px; width: 100%; margin: 0 auto; padding: 3rem 2rem; }
 
@@ -220,10 +241,25 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
   <nav>
     <a href="/" class="nav-brand">WHITE COAT FORGE</a>
     <ul class="nav-links">
-      <li><a href="/entry">Entry</a></li>
-      <li><a href="/program">Program</a></li>
-      <li><a href="/curriculum">Curriculum</a></li>
-      <li><a href="/progression">Progression</a></li>
+      <li class="nav-dropdown">
+        <a href="/physician">Physician ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="/entry">Entry</a>
+          <a href="/program">Program</a>
+          <a href="/curriculum">Curriculum</a>
+          <a href="/progression">Progression</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/anaesthetics">Anaesthetics ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="/anaesthetics/entry">Entry</a>
+          <a href="/anaesthetics/program">Program</a>
+          <a href="/anaesthetics/curriculum">Curriculum</a>
+          <a href="/anaesthetics/exams">Examinations</a>
+        </div>
+      </li>
+      <li><a href="/icu">ICU</a></li>
     </ul>
   </nav>
   <main>
