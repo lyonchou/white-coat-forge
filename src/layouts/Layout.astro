@@ -1,0 +1,236 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'RACP Basic Training reference guide for trainees and supervisors.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} — White Coat Forge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style is:global>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f8f7f4;
+      --surface:   #ffffff;
+      --border:    #e2ddd6;
+      --muted:     #a09a92;
+      --text:      #1a1916;
+      --text-dim:  #5c574f;
+      --accent:    #c0392b;
+      --accent-dim:#7b241c;
+      --mono:      'JetBrains Mono', monospace;
+      --sans:      'Inter', sans-serif;
+    }
+
+    html { font-family: var(--sans); background: var(--bg); color: var(--text); scroll-behavior: smooth; }
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; gap: 2rem;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .nav-brand:hover { text-decoration: none; }
+    .nav-links {
+      display: flex; gap: 1.5rem; list-style: none;
+      font-size: 0.875rem; color: var(--text-dim);
+    }
+    .nav-links a { color: var(--text-dim); transition: color 0.15s; }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text); text-decoration: none; }
+
+    /* Main content */
+    main { flex: 1; max-width: 860px; width: 100%; margin: 0 auto; padding: 3rem 2rem; }
+
+    /* Page header */
+    .page-header { margin-bottom: 3rem; }
+    .page-header h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .page-header p {
+      margin-top: 0.75rem;
+      color: var(--text-dim);
+      font-size: 1rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* Section */
+    .section { margin-bottom: 3rem; }
+    .section h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 1.5rem 0 0.75rem;
+    }
+    .section p { color: var(--text-dim); line-height: 1.7; margin-bottom: 0.75rem; }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .card-title {
+      font-family: var(--mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .card p { margin: 0; font-size: 0.9rem; }
+
+    /* Stat badges */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+    }
+    .stat-number {
+      font-family: var(--mono);
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+
+    /* List */
+    .item-list { list-style: none; }
+    .item-list li {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      display: flex; gap: 0.75rem; align-items: flex-start;
+    }
+    .item-list li::before {
+      content: '—';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-family: var(--mono);
+    }
+
+    /* Level table */
+    .level-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .level-table th {
+      text-align: left; padding: 0.6rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+    }
+    .level-table td {
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      vertical-align: top;
+    }
+    .level-table td:first-child {
+      font-family: var(--mono);
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* Tag */
+    .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; gap: 1rem; }
+      main { padding: 2rem 1rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-brand">WHITE COAT FORGE</a>
+    <ul class="nav-links">
+      <li><a href="/entry">Entry</a></li>
+      <li><a href="/program">Program</a></li>
+      <li><a href="/curriculum">Curriculum</a></li>
+      <li><a href="/progression">Progression</a></li>
+    </ul>
+  </nav>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    White Coat Forge — RACP Basic Training Reference &nbsp;·&nbsp; Not affiliated with RACP
+  </footer>
+</body>
+</html>
