@@ -28,11 +28,9 @@ const specialties = [
       <div class="card">
         <div class="card-title">{s.name} <span class="tag">{s.tag}</span></div>
         <p>{s.desc}</p>
-        <p style="margin-top:0.75rem;">
-          {s.links.map((l, i) => (
-            <><a href={l.href}>{l.label}</a>{i < s.links.length - 1 ? <>&nbsp;·&nbsp;</> : ''}</>
-          ))}
-        </p>
+        <div class="card-links">
+          {s.links.map(l => <a href={l.href}>{l.label}</a>)}
+        </div>
       </div>
     ))}
   </div>

@@ -139,6 +139,17 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
       margin-bottom: 0.5rem;
     }
     .card p { margin: 0; font-size: 0.9rem; }
+    .card-links {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    .card-links a {
+      font-size: 0.85rem; color: var(--accent);
+      padding: 0.2rem 0;
+    }
+    .card-links a:not(:last-child)::after {
+      content: '·'; margin-left: 0.4rem; color: var(--border);
+    }
 
     /* Stat badges */
     .stat-grid {
@@ -275,6 +286,9 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       main { padding: 2rem 1rem; }
+      .card p { word-break: break-word; }
+      .card p a { display: inline-block; margin: 0.15rem 0; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (min-width: 769px) {
       .nav-drawer { display: none !important; }
