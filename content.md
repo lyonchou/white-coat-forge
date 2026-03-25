@@ -6,6 +6,19 @@ physician:
 https://www.racp.edu.au/
 ICU:
 https://www.cicm.org.au/Web/Web/Training-and-Education/Training.aspx?hkey=0cc219b5-386b-4939-b3ec-edffb215922a
+Additional:
+https://www.surgeons.org/Trainees/the-set-program 
+
+https://www.racgp.org.au/education/become-a-gp/train-to-be-a-gp/australian-general-practice-training
+
+https://www.ranzcp.org/become-a-psychiatrist/psychiatry-training
+
+https://acem.org.au/Content-Sources/Associateship-Training-Programs/Advanced-Emergency-Medicine
+
+https://www.dermcoll.edu.au/health-professionals/becoming-a-dermatologist/australian-medical-graduates/
+
+https://www.ranzcr.com/education-training/careers-in-clinical-radiology/applying-to-training-programs/
+
 
 
 If any information the require look up Go to these two websit and look for it

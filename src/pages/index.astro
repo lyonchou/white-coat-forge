@@ -1,49 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const specialties = [
+  { name: 'Physician / Paediatrician', tag: 'RACP', desc: '36-month FTE · 3 phases · Written + Clinical Exams', links: [{label:'Entry',href:'/entry'},{label:'Program',href:'/program'},{label:'Curriculum',href:'/curriculum'},{label:'Progression',href:'/progression'}] },
+  { name: 'Anaesthetics', tag: 'ANZCA', desc: '5+ years · PEx + FEx · 7 Roles in Practice', links: [{label:'Entry',href:'/anaesthetics/entry'},{label:'Program',href:'/anaesthetics/program'},{label:'Curriculum',href:'/anaesthetics/curriculum'},{label:'Exams',href:'/anaesthetics/exams'}] },
+  { name: 'Intensive Care', tag: 'CICM', desc: '6+ years · 42 months ICU · First + Second Part Exams', links: [{label:'Entry',href:'/icu/entry'},{label:'Program',href:'/icu/program'},{label:'Exams',href:'/icu/exams'}] },
+  { name: 'Surgery', tag: 'RACS', desc: '5–6 years · 9 specialties · GSSE + Fellowship Exam', links: [{label:'Entry',href:'/surgery/entry'},{label:'Program',href:'/surgery/program'},{label:'Exams',href:'/surgery/exams'}] },
+  { name: 'General Practice', tag: 'RACGP', desc: '3–4 years · Commonwealth-funded · AKT + KFP + CCE', links: [{label:'Entry',href:'/gp/entry'},{label:'Exams',href:'/gp/exams'}] },
+  { name: 'Psychiatry', tag: 'RANZCP', desc: '5 years · 3 stages · EPAs + Written Case + Scholarly Project', links: [{label:'Entry',href:'/psychiatry/entry'},{label:'Program',href:'/psychiatry/program'}] },
+  { name: 'Emergency Medicine', tag: 'ACEM', desc: '2–6 years · 3 pathways · MCQ Fellowship Exam', links: [{label:'Program',href:'/emergency/program'},{label:'Exams',href:'/emergency/exams'}] },
+  { name: 'Dermatology', tag: 'ACD', desc: '4 years · Highly competitive · CBD + DCE + PDA assessments', links: [{label:'Entry',href:'/dermatology/entry'},{label:'Program',href:'/dermatology/program'}] },
+  { name: 'Clinical Radiology', tag: 'RANZCR', desc: '5 years · 3 phases · Anatomy + Imaging Tech + MCQ + OSCER', links: [{label:'Entry',href:'/radiology/entry'},{label:'Exams',href:'/radiology/exams'}] },
+];
 ---
 <Layout title="Home">
   <div class="page-header">
-    <h1>Three paths.<br/>One forge.</h1>
+    <h1>Nine paths.<br/>One forge.</h1>
     <p>
       Entry requirements, training programs, assessment standards, and progression criteria
-      for RACP Physician, ANZCA Anaesthetics, and CICM Intensive Care training in Australia
-      and Aotearoa New Zealand.
+      for Australian and Aotearoa New Zealand postgraduate medical training.
     </p>
   </div>
 
   <div class="section">
     <h2>Choose Your Path</h2>
-
-    <div class="card">
-      <div class="card-title">Physician / Paediatrician <span class="tag">RACP</span></div>
-      <p>36-month FTE clinical training · 49 competencies · 3 phases · Written + Clinical Examinations</p>
-      <p style="margin-top:0.75rem;">
-        <a href="/entry">Entry</a> &nbsp;·&nbsp;
-        <a href="/program">Program</a> &nbsp;·&nbsp;
-        <a href="/curriculum">Curriculum</a> &nbsp;·&nbsp;
-        <a href="/progression">Progression</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Anaesthetics <span class="tag">ANZCA</span></div>
-      <p>5+ years · 158 accredited sites · Primary Exam + Final Exam · 7 Roles in Practice</p>
-      <p style="margin-top:0.75rem;">
-        <a href="/anaesthetics/entry">Entry</a> &nbsp;·&nbsp;
-        <a href="/anaesthetics/program">Program</a> &nbsp;·&nbsp;
-        <a href="/anaesthetics/curriculum">Curriculum</a> &nbsp;·&nbsp;
-        <a href="/anaesthetics/exams">Examinations</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Intensive Care <span class="tag">CICM</span></div>
-      <p>6+ years · 42 months ICU training · First Part + Second Part Exams · 100+ accredited sites</p>
-      <p style="margin-top:0.75rem;">
-        <a href="/icu/entry">Entry</a> &nbsp;·&nbsp;
-        <a href="/icu/program">Program</a> &nbsp;·&nbsp;
-        <a href="/icu/exams">Examinations</a>
-      </p>
-    </div>
+    {specialties.map(s => (
+      <div class="card">
+        <div class="card-title">{s.name} <span class="tag">{s.tag}</span></div>
+        <p>{s.desc}</p>
+        <p style="margin-top:0.75rem;">
+          {s.links.map((l, i) => (
+            <><a href={l.href}>{l.label}</a>{i < s.links.length - 1 ? <>&nbsp;·&nbsp;</> : ''}</>
+          ))}
+        </p>
+      </div>
+    ))}
   </div>
 </Layout>
