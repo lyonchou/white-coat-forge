@@ -230,7 +230,27 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
       color: var(--text-dim);
       margin-left: 0.5rem;
       vertical-align: middle;
+      position: relative;
+      cursor: default;
     }
+    .tag[data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%; transform: translateX(-50%);
+      background: var(--text);
+      color: var(--bg);
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      white-space: nowrap;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      z-index: 300;
+    }
+    .tag[data-tip]:hover::after { opacity: 1; }
 
     /* Footer */
     footer {

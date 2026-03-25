@@ -2,15 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 
 const specialties = [
-  { name: 'Physician / Paediatrician', tag: 'RACP', desc: '36-month FTE · 3 phases · Written + Clinical Exams', links: [{label:'Entry',href:'/entry'},{label:'Program',href:'/program'},{label:'Curriculum',href:'/curriculum'},{label:'Progression',href:'/progression'}] },
-  { name: 'Anaesthetics', tag: 'ANZCA', desc: '5+ years · PEx + FEx · 7 Roles in Practice', links: [{label:'Entry',href:'/anaesthetics/entry'},{label:'Program',href:'/anaesthetics/program'},{label:'Curriculum',href:'/anaesthetics/curriculum'},{label:'Exams',href:'/anaesthetics/exams'}] },
-  { name: 'Intensive Care', tag: 'CICM', desc: '6+ years · 42 months ICU · First + Second Part Exams', links: [{label:'Entry',href:'/icu/entry'},{label:'Program',href:'/icu/program'},{label:'Exams',href:'/icu/exams'}] },
-  { name: 'Surgery', tag: 'RACS', desc: '5–6 years · 9 specialties · GSSE + Fellowship Exam', links: [{label:'Entry',href:'/surgery/entry'},{label:'Program',href:'/surgery/program'},{label:'Exams',href:'/surgery/exams'}] },
-  { name: 'General Practice', tag: 'RACGP', desc: '3–4 years · Commonwealth-funded · AKT + KFP + CCE', links: [{label:'Entry',href:'/gp/entry'},{label:'Exams',href:'/gp/exams'}] },
-  { name: 'Psychiatry', tag: 'RANZCP', desc: '5 years · 3 stages · EPAs + Written Case + Scholarly Project', links: [{label:'Entry',href:'/psychiatry/entry'},{label:'Program',href:'/psychiatry/program'}] },
-  { name: 'Emergency Medicine', tag: 'ACEM', desc: '2–6 years · 3 pathways · MCQ Fellowship Exam', links: [{label:'Program',href:'/emergency/program'},{label:'Exams',href:'/emergency/exams'}] },
-  { name: 'Dermatology', tag: 'ACD', desc: '4 years · Highly competitive · CBD + DCE + PDA assessments', links: [{label:'Entry',href:'/dermatology/entry'},{label:'Program',href:'/dermatology/program'}] },
-  { name: 'Clinical Radiology', tag: 'RANZCR', desc: '5 years · 3 phases · Anatomy + Imaging Tech + MCQ + OSCER', links: [{label:'Entry',href:'/radiology/entry'},{label:'Exams',href:'/radiology/exams'}] },
+  { name: 'Physician / Paediatrician', tag: 'RACP', tip: 'Royal Australasian College of Physicians', desc: '36-month FTE · 3 phases · Written + Clinical Exams', links: [{label:'Entry',href:'/entry'},{label:'Program',href:'/program'},{label:'Curriculum',href:'/curriculum'},{label:'Progression',href:'/progression'}] },
+  { name: 'Anaesthetics', tag: 'ANZCA', tip: 'Australian & New Zealand College of Anaesthetists', desc: '5+ years · PEx + FEx · 7 Roles in Practice', links: [{label:'Entry',href:'/anaesthetics/entry'},{label:'Program',href:'/anaesthetics/program'},{label:'Curriculum',href:'/anaesthetics/curriculum'},{label:'Exams',href:'/anaesthetics/exams'}] },
+  { name: 'Intensive Care', tag: 'CICM', tip: 'College of Intensive Care Medicine', desc: '6+ years · 42 months ICU · First + Second Part Exams', links: [{label:'Entry',href:'/icu/entry'},{label:'Program',href:'/icu/program'},{label:'Exams',href:'/icu/exams'}] },
+  { name: 'Surgery', tag: 'RACS', tip: 'Royal Australasian College of Surgeons', desc: '5–6 years · 9 specialties · GSSE + Fellowship Exam', links: [{label:'Entry',href:'/surgery/entry'},{label:'Program',href:'/surgery/program'},{label:'Exams',href:'/surgery/exams'}] },
+  { name: 'General Practice', tag: 'RACGP', tip: 'Royal Australian College of General Practitioners', desc: '3–4 years · Commonwealth-funded · AKT + KFP + CCE', links: [{label:'Entry',href:'/gp/entry'},{label:'Exams',href:'/gp/exams'}] },
+  { name: 'Psychiatry', tag: 'RANZCP', tip: 'Royal Australian & New Zealand College of Psychiatrists', desc: '5 years · 3 stages · EPAs + Written Case + Scholarly Project', links: [{label:'Entry',href:'/psychiatry/entry'},{label:'Program',href:'/psychiatry/program'}] },
+  { name: 'Emergency Medicine', tag: 'ACEM', tip: 'Australasian College for Emergency Medicine', desc: '2–6 years · 3 pathways · MCQ Fellowship Exam', links: [{label:'Program',href:'/emergency/program'},{label:'Exams',href:'/emergency/exams'}] },
+  { name: 'Dermatology', tag: 'ACD', tip: 'Australasian College of Dermatologists', desc: '4 years · Highly competitive · CBD + DCE + PDA assessments', links: [{label:'Entry',href:'/dermatology/entry'},{label:'Program',href:'/dermatology/program'}] },
+  { name: 'Clinical Radiology', tag: 'RANZCR', tip: 'Royal Australian & New Zealand College of Radiologists', desc: '5 years · 3 phases · Anatomy + Imaging Tech + MCQ + OSCER', links: [{label:'Entry',href:'/radiology/entry'},{label:'Exams',href:'/radiology/exams'}] },
 ];
 ---
 <Layout title="Home">
@@ -26,7 +26,7 @@ const specialties = [
     <h2>Choose Your Path</h2>
     {specialties.map(s => (
       <div class="card">
-        <div class="card-title">{s.name} <span class="tag">{s.tag}</span></div>
+        <div class="card-title">{s.name} <span class="tag" data-tip={s.tip}>{s.tag}</span></div>
         <p>{s.desc}</p>
         <div class="card-links">
           {s.links.map(l => <a href={l.href}>{l.label}</a>)}
