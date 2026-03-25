@@ -43,7 +43,7 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
       background: var(--bg);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
-      display: flex; align-items: center; gap: 2rem;
+      display: flex; align-items: stretch; gap: 1.5rem;
       height: 56px;
     }
     .nav-brand {
@@ -53,31 +53,54 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
       color: var(--accent);
       letter-spacing: -0.01em;
       white-space: nowrap;
+      display: flex; align-items: center;
+      margin-right: 0.5rem;
     }
     .nav-brand:hover { text-decoration: none; }
     .nav-links {
-      display: flex; gap: 1.5rem; list-style: none;
-      font-size: 0.875rem; color: var(--text-dim);
+      display: flex; gap: 0; list-style: none;
+      font-size: 0.875rem; align-items: stretch;
     }
     .nav-links a { color: var(--text-dim); transition: color 0.15s; }
     .nav-links a:hover,
     .nav-links a.active { color: var(--text); text-decoration: none; }
 
     /* Specialty dropdown */
-    .nav-dropdown { position: relative; }
+    .nav-dropdown {
+      position: relative;
+      display: flex; align-items: center;
+    }
+    .nav-dropdown > a {
+      /* full-height click/hover target, no dead zone */
+      display: flex; align-items: center;
+      height: 100%;
+      padding: 0 0.75rem;
+    }
     .nav-dropdown-menu {
       display: none;
-      position: absolute; top: calc(100% + 8px); left: 0;
+      position: absolute;
+      top: 100%;        /* flush — no gap */
+      left: 0;
+      padding-top: 8px; /* visual breathing room inside the menu */
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 6px;
-      min-width: 180px;
+      min-width: 160px;
       z-index: 200;
       overflow: hidden;
     }
+    /* bridge the border-bottom of nav so hover stays continuous */
+    .nav-dropdown-menu::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background: var(--surface);
+      margin: 0 -1px 0 -1px;
+      position: relative; top: -1px;
+    }
     .nav-dropdown:hover .nav-dropdown-menu { display: block; }
     .nav-dropdown-menu a {
-      display: block; padding: 0.6rem 1rem;
+      display: block; padding: 0.55rem 1rem;
       font-size: 0.85rem; color: var(--text-dim);
       border-bottom: 1px solid var(--border);
     }
