@@ -19,6 +19,33 @@ https://www.dermcoll.edu.au/health-professionals/becoming-a-dermatologist/austra
 
 https://www.ranzcr.com/education-training/careers-in-clinical-radiology/applying-to-training-programs/
 
+RACS- surgery
+
+https://www.surgeons.org/Trainees/the-set-program
+
+RACGP - GP
+
+https://www.racgp.org.au/education/become-a-gp/train-to-be-a-gp/australian-general-practice-training
+
+
+RANZCP - psychiatry 
+
+https://www.ranzcp.org/become-a-psychiatrist/psychiatry-training
+
+
+ACEM- Emergency 
+
+https://acem.org.au/Content-Sources/Associateship-Training-Programs/Advanced-Emergency-Medicine
+
+
+Dermatology
+
+https://www.dermcoll.edu.au/health-professionals/becoming-a-dermatologist/australian-medical-graduates/
+
+
+RANZCR - Radiology 
+
+https://www.ranzcr.com/education-training/careers-in-clinical-radiology/applying-to-training-programs/
 
 
 If any information the require look up Go to these two websit and look for it
