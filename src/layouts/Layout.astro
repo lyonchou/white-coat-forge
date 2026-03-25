@@ -241,6 +241,12 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
       color: var(--muted);
     }
 
+    .nav-search-mobile {
+      font-size: 1.2rem; color: var(--text-dim);
+      display: none; margin-left: auto;
+    }
+    .nav-search-mobile:hover { text-decoration: none; color: var(--accent); }
+
     /* Hamburger */
     .nav-hamburger {
       display: none;
@@ -285,6 +291,7 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+      .nav-search-mobile { display: block; }
       main { padding: 2rem 1rem; }
       .card p { word-break: break-word; }
       .card p a { display: inline-block; margin: 0.15rem 0; }
@@ -308,7 +315,9 @@ const { title, description = 'RACP Basic Training reference guide for trainees a
       <li class="nav-dropdown"><a href="/emergency">Emergency ▾</a><div class="nav-dropdown-menu"><a href="/emergency/program">Program</a><a href="/emergency/exams">Exams</a></div></li>
       <li class="nav-dropdown"><a href="/dermatology">Derm ▾</a><div class="nav-dropdown-menu"><a href="/dermatology/entry">Entry</a><a href="/dermatology/program">Program</a></div></li>
       <li class="nav-dropdown"><a href="/radiology">Radiology ▾</a><div class="nav-dropdown-menu"><a href="/radiology/entry">Entry</a><a href="/radiology/exams">Exams</a></div></li>
+      <li style="margin-left:auto;"><a href="/search" style="color:var(--text-dim); font-size:1.1rem;" title="Search">⌕</a></li>
     </ul>
+    <a href="/search" class="nav-search-mobile" title="Search">⌕</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
