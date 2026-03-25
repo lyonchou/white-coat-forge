@@ -1,3 +1,42 @@
 ---
-return Astro.redirect('/entry');
+import Layout from '../layouts/Layout.astro';
 ---
+<Layout title="Physician Training" description="RACP Basic Training program overview for physicians and paediatricians.">
+  <div class="page-header">
+    <h1>Physician Training</h1>
+    <p>RACP — Royal Australasian College of Physicians · Basic Training Program</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat"><div class="stat-number">36</div><div class="stat-label">months FTE clinical experience required</div></div>
+    <div class="stat"><div class="stat-number">49</div><div class="stat-label">competencies across 10 domains</div></div>
+    <div class="stat"><div class="stat-number">8</div><div class="stat-label">Entrustable Professional Activities</div></div>
+    <div class="stat"><div class="stat-number">3</div><div class="stat-label">training phases to complete</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Training Phases</h2>
+    <div class="card">
+      <div class="card-title">Foundation</div>
+      <p>Entry point of training. Submit your application by 28 Feb or 31 Aug.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Consolidation</div>
+      <p>Ongoing rotations and work-based assessments. 12 learning captures + 12 observation captures per phase.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Completion</div>
+      <p>Written Examination (early) and Clinical Examination (mid-phase). Final phase before fellowship.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Quick Links</h2>
+    <ul class="item-list">
+      <li><a href="/entry">Entry requirements & selection criteria</a></li>
+      <li><a href="/program">Learning, teaching & assessment programs</a></li>
+      <li><a href="/curriculum">Curricula standards — competencies, EPAs, knowledge guides</a></li>
+      <li><a href="/progression">Learning goals & Be / Do / Know progression scales</a></li>
+    </ul>
+  </div>
+</Layout>
