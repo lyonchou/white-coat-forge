@@ -24,14 +24,13 @@ import Layout from '../layouts/Layout.astro';
     }
   </style>
   <script is:inline>
-    window.addEventListener('DOMContentLoaded', () => {
-      const s = document.createElement('script');
-      s.type = 'module';
-      s.textContent = `
-        import { PagefindUI } from '/pagefind/pagefind-ui.js';
+    import('/pagefind/pagefind-ui.js')
+      .then(({ PagefindUI }) => {
         new PagefindUI({ element: '#search', showSubResults: true, showImages: false });
-      `;
-      document.body.appendChild(s);
-    });
+      })
+      .catch(() => {
+        document.getElementById('search').innerHTML =
+          '<p style="color:var(--text-dim)">Search index not available. Try after a full deploy.</p>';
+      });
   </script>
 </Layout>
