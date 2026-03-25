@@ -5,11 +5,17 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
-    "preview": "astro preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@pagefind/default-ui": "^1.4.0",
     "astro": "^5.0.0",
     "pagefind": "^1.4.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.77.0"
   }
 }
